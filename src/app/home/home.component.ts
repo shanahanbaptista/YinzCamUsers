@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
 	getUsers(){
 		this.appService.getUsers(this.nextUrl).subscribe(
-			(users) => {
+			users => {
 				this.users = this.users.concat(users.data);
 				this.nextUrl = users.next;
 				this.pageLoaded = true;

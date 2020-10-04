@@ -57,8 +57,10 @@ export class AppService {
 
 	private getPaginationUrls(res){
 		let link = res.headers.get('link');
-		link = link.split(',')
-		let urls = {}
+		if(!link)
+			return {};
+		link = link.split(',');
+		let urls = {};
 
 		link.forEach((value, key) => {
 			let url = value.substring(value.indexOf('<')+1, value.indexOf('>'));

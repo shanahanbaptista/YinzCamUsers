@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-user',
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-	constructor(private appService: AppService, private route: ActivatedRoute) { }
+	constructor(private appService: AppService, private route: ActivatedRoute, private router: Router) { }
 
 	pageLoaded:boolean = false;
 	user:any = {};
@@ -21,31 +21,51 @@ export class UserComponent implements OnInit {
 	}
 
 	getUserByName(name: string):void {
-		this.appService.getUserByName(name).subscribe(user => {
-			console.log(user);
-			this.user = user;
-			this.user.reposList = [];
-			this.user.followersList = [];
-			this.pageLoaded = true;
-		}, error => {
-			console.log("GRAVE ERROR", error);
-		});
+		this.appService.getUserByName(name).subscribe(
+			user => {
+				console.log(user);
+				this.user = user;
+				this.user.reposList = [];
+				this.user.followersList = [];
+				this.pageLoaded = true;
+			},
+			error => {
+				console.error(error)
+				this.router.navigate(['error'], error);
+			}
+		);
 	}
 
 	getRepos(url: string){
-		this.appService.getReposList(url).subscribe(repos => {
-			this.user.reposList = repos.data;
-			this.user.pagination = repos.pagination;
-			this.display = 'repos';
-		});
+		this.appService.getReposList(url).subscribe(
+			repos => {
+				this.user.reposList = repos.data;
+				this.user.pagination = repos.pagination;
+				this.display = 'repos';
+			},
+			error => {
+				console.error(error)
+				this.router.navigate(['error'], error);
+			}
+		);
 	}
 
 	getFollowers(url: string){
-		this.appService.getFollowersList(url).subscribe(followers => {
-			this.user.followersList = followers.data;
-			this.user.pagination = followers.pagination;
-			this.display = 'followers';
-		});
+		this.appService.getFollowersList(url).subscribe(
+			followers => {
+				this.user.followersList = followers.data;
+				this.user.pagination = followers.pagination;
+				this.display = 'followers';
+			},
+			error => {
+				console.error(error)
+				this.router.navigate(['error'], error);
+			}
+		);
+	}
+
+	goToGitHub(url: string){
+		window.open(url, '_blank');
 	}
 
 	goToTop(){

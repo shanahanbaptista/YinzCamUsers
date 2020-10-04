@@ -37,17 +37,16 @@
 }
 
 .card>.username{
-	/*margin-left: 10px;*/
 	color: #777;
 }
 
-.scroll-top:hover, .card:hover{
+.card:hover{
 	transform: translateY(-3px);
 	box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
 
 .card:hover .avatar{
-	border: 3px solid gold;
+	border: 3px solid #efb632;
 }
 
 @media screen and (min-width: 992px) {
@@ -86,20 +85,3 @@
 		margin-right: 0;
 	}
 }
-
-.yinzcam-nav{
-	position: fixed;
-	padding: 20px;
-	top: 0;
-	left: 0;
-	right: 0;
-	background-color: lightblue;
-	z-index: 101;
-}
-
-.yinzcam-nav>h1{
-	margin: 0;
-	display: flex;
-	justify-content: space-between;
-}
-

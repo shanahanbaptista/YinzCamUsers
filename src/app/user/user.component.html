@@ -1,94 +1,108 @@
-<div *ngIf="pageLoaded; else loading" class="card-container">
-
-	<div class="breadcrumb">
-		<p>
-			<a routerLink="/">Home</a>
-			<span>&nbsp;/&nbsp;{{user.login}}</span>
-		</p>
+<div *ngIf="pageLoaded; else loading">
+	<div class="yinzcam-nav">
+		<h1>
+			<a routerLink="">YinzCam Users</a>
+		</h1>
 	</div>
 
-	<div class="card">
-		<div class="header">
-		<div class="avatar">
-			<img [src]="user.avatar_url" height="150" width="150">
+	<div class="card-container">
+		<div class="breadcrumb">
+			<p>
+				<a routerLink="/">Home</a>
+				<span>&nbsp;/&nbsp;{{user.login}}</span>
+			</p>
 		</div>
-		<div class="bio-counts">
-			<div class="user-counts">
-				<h2 class="repo-details" [ngClass]="{'active' : display== 'repos'}">
-					<div (click)="getRepos(user.repos_url)" class="repo-count">{{user.public_repos | number}}</div>
-					<div class="repo-text">repositories</div>
-				</h2>
-				<h2 class="space">&emsp;&#9679;&emsp;</h2>
-				<h2 class="follower-details" [ngClass]="{'active' : display== 'followers'}">
-					<div (click)="getFollowers(user.followers_url)" class="follower-count">{{user.followers | number}}</div>
-					<div class="follower-text">followers</div>	
-				</h2>
+
+		<div class="card">
+			<div class="header">
+			<div class="avatar">
+				<img [src]="user.avatar_url" height="150" width="150">
 			</div>
-		</div>
-		</div>
+			<div class="bio-counts">
+				<div class="user-counts">
+					<h2 class="repo-details" [ngClass]="{'active' : display== 'repos'}">
+						<div (click)="getRepos(user.repos_url)" class="repo-count">{{user.public_repos | number}}</div>
+						<div class="repo-text">repositories</div>
+					</h2>
+					<h2 class="space">&emsp;&#9679;&emsp;</h2>
+					<h2 class="follower-details" [ngClass]="{'active' : display== 'followers'}">
+						<div (click)="getFollowers(user.followers_url)" class="follower-count">{{user.followers | number}}</div>
+						<div class="follower-text">followers</div>	
+					</h2>
+					<h2 class="space">&emsp;&#9679;&emsp;</h2>
+					<h2 class="follower-details">
+						<div (click)="goToGitHub(user.html_url)" class="follower-count">
+							<img src="/assets/images/github.png" alt="GitHub logo">
+						</div>
+						<div class="follower-text">GitHub</div>	
+					</h2>
+				</div>
+			</div>
+			</div>
 
-		<div class="bio-details">
-			<h1>{{user.login}}</h1>
-			<h4>{{user.bio}}</h4>
-		</div>
+			<div class="bio-details">
+				<h1>{{user.login}}</h1>
+				<h4>{{user.bio}}</h4>
+			</div>
 
-		<div *ngIf="display == 'repos'">
-			<hr>
-			<h4 style="clear: both;">Repositories
-				<span style="float: right">
-					<span *ngIf="user.pagination.first">
-						<button class="button-pagination" title="First" (click)="getRepos(user.pagination.first)">&nbsp;<<&nbsp;</button>
+			<div *ngIf="display == 'repos'">
+				<hr>
+				<h4 style="clear: both;">Repositories
+					<span style="float: right">
+						<span *ngIf="user.pagination.first">
+							<button class="button-pagination" title="First" (click)="getRepos(user.pagination.first)">&nbsp;<<&nbsp;</button>
+						</span>
+						<span *ngIf="user.pagination.prev">
+							<button class="button-pagination" title="Prev" (click)="getRepos(user.pagination.prev)">&nbsp;<&nbsp;</button>
+						</span>
+						<span *ngIf="user.pagination.next">
+							<button class="button-pagination" title="Next" (click)="getRepos(user.pagination.next)">&nbsp;>&nbsp;</button>
+						</span>
+						<span *ngIf="user.pagination.last">
+							<button class="button-pagination" title="Last" (click)="getRepos(user.pagination.last)">&nbsp;>>&nbsp;</button>
+						</span>
 					</span>
-					<span *ngIf="user.pagination.prev">
-						<button class="button-pagination" title="Prev" (click)="getRepos(user.pagination.prev)">&nbsp;<&nbsp;</button>
-					</span>
-					<span *ngIf="user.pagination.next">
-						<button class="button-pagination" title="Next" (click)="getRepos(user.pagination.next)">&nbsp;>&nbsp;</button>
-					</span>
-					<span *ngIf="user.pagination.last">
-						<button class="button-pagination" title="Last" (click)="getRepos(user.pagination.last)">&nbsp;>>&nbsp;</button>
-					</span>
-				</span>
-			</h4>
-			<div class="repos-container">
-				<div class="repo-card" *ngFor="let repo of user.reposList">
-					<h4>Title: {{repo.name}} <small>(<a [href]="repo.html_url" target="_blank">view on Github</a>)</small></h4>
-					<p *ngIf="repo.description">Description: {{repo.description}}</p>
-					<div class="repo-card-dates">
-						<div>Created: {{repo.created_at | date: 'MMM d, y, h:mm a' }}</div>
-						<div>Last update: {{repo.updated_at | date: 'MMM d, y, h:mm a'}}</div>
+				</h4>
+				<div class="repos-container">
+					<div class="repo-card" *ngFor="let repo of user.reposList">
+						<h4>Title: {{repo.name}} <small>(<a [href]="repo.html_url" target="_blank">view on GitHub</a>)</small></h4>
+						<p *ngIf="repo.description">Description: {{repo.description}}</p>
+						<div class="repo-card-dates">
+							<div>Created: {{repo.created_at | date: 'MMM d, y, h:mm a' }}</div>
+							<div>Last update: {{repo.updated_at | date: 'MMM d, y, h:mm a'}}</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div *ngIf="display == 'followers'">
-			<hr>
-			<h4 style="clear: both;">Followers
-				<span style="float: right">
-					<span *ngIf="user.pagination.first">
-						<button class="button-pagination" title="First" (click)="getFollowers(user.pagination.first)">&nbsp;<<&nbsp;</button>
+			<div *ngIf="display == 'followers'">
+				<hr>
+				<h4 style="clear: both;">Followers
+					<span style="float: right">
+						<span *ngIf="user.pagination.first">
+							<button class="button-pagination" title="First" (click)="getFollowers(user.pagination.first)">&nbsp;<<&nbsp;</button>
+						</span>
+						<span *ngIf="user.pagination.prev">
+							<button class="button-pagination" title="Prev" (click)="getFollowers(user.pagination.prev)">&nbsp;<&nbsp;</button>
+						</span>
+						<span *ngIf="user.pagination.next">
+							<button class="button-pagination" title="Next" (click)="getFollowers(user.pagination.next)">&nbsp;>&nbsp;</button>
+						</span>
+						<span *ngIf="user.pagination.last">
+							<button class="button-pagination" title="Last" (click)="getFollowers(user.pagination.last)">&nbsp;>>&nbsp;</button>
+						</span>
 					</span>
-					<span *ngIf="user.pagination.prev">
-						<button class="button-pagination" title="Prev" (click)="getFollowers(user.pagination.prev)">&nbsp;<&nbsp;</button>
-					</span>
-					<span *ngIf="user.pagination.next">
-						<button class="button-pagination" title="Next" (click)="getFollowers(user.pagination.next)">&nbsp;>&nbsp;</button>
-					</span>
-					<span *ngIf="user.pagination.last">
-						<button class="button-pagination" title="Last" (click)="getFollowers(user.pagination.last)">&nbsp;>>&nbsp;</button>
-					</span>
-				</span>
-			</h4>
-			<div class="followers-container">
-				<div class="follower-card" *ngFor="let follower of user.followersList">
-					<div><img class="avatar" [src]="follower.avatar_url" height="75" width="75" [alt]="'Profile picture of '+follower.login"></div>
-					<h4 class="username">{{follower.login}}</h4>
-					<div><small>(<a [href]="follower.html_url" target="_blank">View profile on Github</a>)</small></div>
+				</h4>
+				<div class="followers-container">
+					<div class="follower-card" *ngFor="let follower of user.followersList">
+						<div><img class="avatar" [src]="follower.avatar_url" height="75" width="75" [alt]="'Profile picture of '+follower.login"></div>
+						<h4 class="username">{{follower.login}}</h4>
+						<div><small>(<a [href]="follower.html_url" target="_blank">View profile on GitHub</a>)</small></div>
+					</div>
 				</div>
 			</div>
-		</div>
 
+		</div>
 	</div>
 
 	<div class="scroll-top" (click)="goToTop()">

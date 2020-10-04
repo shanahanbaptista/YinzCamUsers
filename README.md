@@ -36,3 +36,4 @@ https://medium.com/@appl4e/scroll-to-top-button-for-angular-99ddeebb8c3a
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout
 https://stackoverflow.com/questions/46181915/using-ngfor-in-css-grid-layout-undesirably-displaying-everything-in-one-column
+https://www.tektutorialshub.com/angular/angular-http-get-example-using-httpclient/
