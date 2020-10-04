@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+
+https://css-tricks.com/snippets/css/complete-guide-grid/
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://stackoverflow.com/questions/14008781/media-queries-in-between-two-widths
+https://www.w3schools.com/charsets/ref_utf_arrows.asp
+https://medium.com/@appl4e/scroll-to-top-button-for-angular-99ddeebb8c3a
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout
+https://stackoverflow.com/questions/46181915/using-ngfor-in-css-grid-layout-undesirably-displaying-everything-in-one-column

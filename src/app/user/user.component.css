@@ -1,0 +1,132 @@
+.card-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card{
+	background-color: white;
+	padding: 25px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	width: 50%;
+}
+
+.card .header{
+	display: flex;
+	/*justify-content: space-between;*/
+	align-items: center;
+}
+
+.card .bio-counts{
+	margin-left: 5rem;
+}
+
+.card .avatar>img{
+	border-radius: 100%;
+}
+
+.card .user-counts{
+	display: flex;
+	justify-content: center;
+}
+
+.card .bio-counts .user-counts>h2{
+	margin-top: 0;
+	text-align: center;
+}
+
+.card .bio-counts .user-counts>.space{
+	align-self: center;
+}
+
+.card .bio-counts .user-counts>.repo-details, .card .bio-counts .user-counts>.follower-details{
+	cursor: pointer;
+}
+
+.card .bio-counts .user-counts>.repo-details>.repo-count, .card .bio-counts .user-counts>.follower-details>.follower-count{
+	font-size: xxx-large;
+}
+
+.card .bio-counts .user-counts>.repo-details>.repo-text, .card .bio-counts .user-counts>.follower-details>.follower-text{
+	font-size: initial;
+}
+
+.card .bio-details{
+	text-align: left;
+}
+
+.card .repos-container{
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: repeat(2, 1fr);
+	grid-row-gap: 10px;
+}
+
+.card .repo-card{
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card .active{
+	color: blue !important;
+}
+
+.card .repo-card:nth-child(2n){
+	margin-right: 0;
+}
+
+.card .repo-card>h4{
+	margin-top: 0;
+}
+
+.card .repo-card>p{
+	color: grey;
+}
+
+.card .repo-card .repo-card-dates{
+	font-size: small;
+	color: grey;
+}
+
+
+.card .followers-container{
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: repeat(3, 1fr);
+	grid-row-gap: 10px;
+}
+
+.card .follower-card{
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+
+.card .follower-card:nth-child(3n){
+	margin-right: 0;
+}
+
+.card .follower-card .avatar{
+	border-radius: 100%;
+	/*border: 3px solid #2196f3;*/
+}
+
+.card .follower-card .username{
+	margin-bottom: 0;
+	color: #777;
+}

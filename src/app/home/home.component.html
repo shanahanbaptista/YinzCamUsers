@@ -1,0 +1,22 @@
+<ng-template #loading>
+	<h3>Please wait while the page is loading...</h3>
+</ng-template>
+
+<div *ngIf="pageLoaded; else loading">
+	<h1>
+		YinzCam Users
+		<span class="search-bar"><input type="text" name="" placeholder="Search username" [(ngModel)]="search"></span>
+	</h1>
+
+	<div class="card-container">
+		<div class="card" (click)="viewUser(user.login)" tabindex="0" *ngFor="let user of users | filter: search">
+			<div><img class="avatar" [src]="user.avatar_url" height="120" width="120" [alt]="'Profile picture of '+user.login"></div>
+			<h2 class="username">{{user.login}}</h2>
+		</div>
+	</div>
+
+	<div class="scroll-top" (click)="goToTop()">
+		<div>&#8593;</div>
+		<!-- <div>top</div> -->
+	</div>
+</div>
