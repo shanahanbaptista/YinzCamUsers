@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
 	selector: 'app-user',
@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
 			},
 			error => {
 				console.error(error)
-				this.router.navigate(['error'], error);
+				this.router.navigate(['error'], {state: {data: JSON.stringify(error)}});
 			}
 		);
 	}
@@ -45,7 +45,7 @@ export class UserComponent implements OnInit {
 			},
 			error => {
 				console.error(error)
-				this.router.navigate(['error'], error);
+				this.router.navigate(['error'], {state: {data: JSON.stringify(error)}});
 			}
 		);
 	}
@@ -59,7 +59,7 @@ export class UserComponent implements OnInit {
 			},
 			error => {
 				console.error(error)
-				this.router.navigate(['error'], error);
+				this.router.navigate(['error'], {state: {data: JSON.stringify(error)}});
 			}
 		);
 	}

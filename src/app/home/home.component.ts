@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AppService } from '../app.service';
 import { FilterPipe } from './filter.pipe';
 
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
 			},
 			error => {
 				console.error(error)
-				this.router.navigate(['error'], error);
+				this.router.navigate(['error'], {state: {data: JSON.stringify(error)}});
 			}
 		);
 	}

@@ -1,0 +1,15 @@
+.error-page{
+	text-align: center;
+}
+
+.error-page>.error-status{
+	font-size: 20rem;
+}
+
+.error-page>.error-message{
+	font-size: 3rem;
+}
+
+.error-page>.error-button{
+	font-size: 2rem;
+}
