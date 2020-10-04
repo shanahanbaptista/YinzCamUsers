@@ -172,3 +172,15 @@
 		width: 80%;
 	}
 }
+
+.button-pagination{
+	background: none;
+	border: none;
+	color: blue;
+	cursor: pointer;
+}
+
+.button-pagination:hover{
+	background-color: #ddd;
+	border: 1px solid #ccc;
+}

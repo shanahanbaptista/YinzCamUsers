@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getUsers();
+		this.goToTop();
+		// this.pageLoaded = true;
 	}
 
 	@HostListener("window:scroll", [])

@@ -3,10 +3,12 @@
 </ng-template>
 
 <div *ngIf="pageLoaded; else loading">
-	<h1>
-		YinzCam Users
-		<span class="search-bar"><input type="text" name="" placeholder="Search username" [(ngModel)]="search"></span>
-	</h1>
+	<div class="yinzcam-nav">
+		<h1>
+			<div>YinzCam Users</div>
+			<div class="search-bar"><input type="text" name="" placeholder="Search username" [(ngModel)]="search"></div>
+		</h1>
+	</div>
 
 	<div class="card-container">
 		<div class="card" (click)="viewUser(user.login)" tabindex="0" *ngFor="let user of users | filter: search">
