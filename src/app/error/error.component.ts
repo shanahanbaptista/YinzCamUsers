@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-error',
@@ -8,12 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
   sub:any;
   ngOnInit() {
-    this.sub = this.route
-      .data
-      .subscribe(v => console.log(v));
+    /*this.sub = this.route.
+    	data.
+      .subscribe(v => console.log(v));*/
+      console.log(this.router.getCurrentNavigation());
   }
 
 }

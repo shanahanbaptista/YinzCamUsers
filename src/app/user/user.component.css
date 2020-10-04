@@ -2,6 +2,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+}
+
+.breadcrumb{
+	width: 50%;
 }
 
 .card{
@@ -54,6 +59,15 @@
 
 .card .bio-details{
 	text-align: left;
+}
+
+.card .bio-details>h1{
+	margin: 0;
+}
+
+.card .bio-details>h4{
+	margin: 0;
+	color: grey;
 }
 
 .card .repos-container{
@@ -115,8 +129,6 @@
 	align-items: center;
 }
 
-
-
 .card .follower-card:nth-child(3n){
 	margin-right: 0;
 }
@@ -129,4 +141,34 @@
 .card .follower-card .username{
 	margin-bottom: 0;
 	color: #777;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+/* start of large tablet styles */
+	.breadcrumb{
+		width: 80%;
+	}
+	.card{
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+/* start of medium tablet styles */
+	.breadcrumb{
+		width: 80%;
+	}
+	.card{
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 479px) {
+/* start of phone styles */
+	.breadcrumb{
+		width: 80%;
+	}
+	.card{
+		width: 80%;
+	}
 }

@@ -49,27 +49,6 @@
 	border: 3px solid gold;
 }
 
-.scroll-top{
-	position: fixed;
-	bottom: 2%;
-	right: 1%;
-	font-size: x-large;
-	height: 50px;
-	width: 50px;
-	background: white;
-	border-radius: 50%;
-	border: 1px solid #ccc;
-	text-align: center;
-	cursor: pointer;
-	z-index: 100;
-	font-family: sans-serif;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-
 @media screen and (min-width: 992px) {
 /* start of large tablet styles */
 	.card:nth-child(5n){

@@ -8,8 +8,8 @@ import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
 	{path: '', component: HomeComponent},
+	{path: 'error', component: ErrorComponent, data:{}},
 	{path: ':name', component: UserComponent},
-	{path: 'error', component: ErrorComponent, data: {}}
 ];
 
 @NgModule({

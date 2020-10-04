@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
 
 	constructor(private appService: AppService, private router: Router, private route: ActivatedRoute) { }
 
-	users:any = []
-	sinceLast:number = 0;
+	users:any = [];
+	nextUrl:string;
 	search: string;
 	pageLoaded:boolean = false;
 
@@ -40,14 +40,18 @@ export class HomeComponent implements OnInit {
 	}
 
 	getUsers(){
-		let params = {since: this.sinceLast}
-		this.appService.getUsers(params).subscribe(users => {
-			this.users = this.users.concat(users);
-			console.log("Users", this.users);
-			this.sinceLast = this.users[this.users.length-1].id;
-			this.pageLoaded = true;
-			this.scrollQuerying = false;
-		});
+		this.appService.getUsers(this.nextUrl).subscribe(
+			(users) => {
+				this.users = this.users.concat(users.data);
+				this.nextUrl = users.next;
+				this.pageLoaded = true;
+				this.scrollQuerying = false;
+			},
+			error => {
+				console.error(error)
+				this.router.navigate(['error'], error);
+			}
+		);
 	}
 
 	viewUser(login:string){
