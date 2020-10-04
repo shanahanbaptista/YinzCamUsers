@@ -23,7 +23,6 @@ export class UserComponent implements OnInit {
 	getUserByName(name: string):void {
 		this.appService.getUserByName(name).subscribe(
 			user => {
-				console.log(user);
 				this.user = user;
 				this.user.reposList = [];
 				this.user.followersList = [];

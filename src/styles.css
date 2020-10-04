@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+	font-family: 'Lato';
+	src: url(assets/font/Lato.ttf);
+}
+
 body{
 	background-color: #f7f7f7;
 	padding: 20px;
+
+	font-family: Lato;
 }
 
 html{
@@ -57,9 +64,20 @@ a{
 	display: flex;
 	justify-content: space-between;
 	color: #efb632;
+	align-items: center;
 }
 
 .yinzcam-nav>h1>a{
 	color: #efb632 !important;
 	text-decoration: none;
+}
+
+@media screen and (max-width: 479px) {
+	.yinzcam-nav>h1{
+		font-size: larger;
+	}
+
+	body{
+		padding: 10px !important;
+	}
 }

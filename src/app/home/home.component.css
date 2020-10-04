@@ -50,14 +50,14 @@
 }
 
 @media screen and (min-width: 992px) {
-/* start of large tablet styles */
+	/* start of large tablet styles */
 	.card:nth-child(5n){
 		margin-right: 0;
 	}
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-/* start of large tablet styles */
+	/* start of large tablet styles */
 	.card-container{
 		grid-template-columns: repeat(4, 1fr);
 	}
@@ -67,7 +67,7 @@
 }
 
 @media screen and (min-width: 480px) and (max-width: 767px) {
-/* start of medium tablet styles */
+	/* start of medium tablet styles */
 	.card-container{
 		grid-template-columns: repeat(3, 1fr);
 	}
@@ -77,11 +77,15 @@
 }
 
 @media screen and (max-width: 479px) {
-/* start of phone styles */
+	/* start of phone styles */
 	.card-container{
 		grid-template-columns: repeat(2, 1fr);
 	}
 	.card:nth-child(2n){
 		margin-right: 0;
+	}
+
+	.card{
+		padding: 10px;
 	}
 }

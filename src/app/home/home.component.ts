@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
 	ngOnInit(): void {
 		this.getUsers();
 		this.goToTop();
-		// this.pageLoaded = true;
 	}
 
 	@HostListener("window:scroll", [])
@@ -33,7 +32,6 @@ export class HomeComponent implements OnInit {
 		console.log("Total: " + (window.innerHeight + window.scrollY));*/
 		if(this.currentPos < window.innerHeight + window.scrollY && !this.scrollQuerying){
 			if((window.innerHeight + window.scrollY) >= (window.document.body.offsetHeight-100)){
-				// window.alert("Call function here");
 				this.currentPos = window.innerHeight + window.scrollY;
 				this.scrollQuerying = true;
 				this.getUsers();
